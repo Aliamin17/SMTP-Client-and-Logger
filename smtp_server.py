@@ -1,0 +1,32 @@
+from socket import AF_INET, SOCK_STREAM
+from socket import *
+if __name__ == '__main__':
+    print('application started')
+    s=socket(AF_INET, SOCK_STREAM)
+    s.bind(('127.0.0.1',7779))
+    backlog=0
+    s.listen(backlog)
+    client_socket,client_addr=s.accept()
+    recv_buffer_lenth=1024
+    q=client_socket.recv(recv_buffer_lenth)
+    mail=client_socket.recv(recv_buffer_lenth)
+    host_name=client_socket.recv(recv_buffer_lenth)
+    IPAddress=client_socket.recv(recv_buffer_lenth)
+    x=client_socket.recv(recv_buffer_lenth)
+    v=client_socket.recv(recv_buffer_lenth)
+    q=q.decode()
+    v=v.decode()
+    mail=mail.decode()
+    host_name=host_name.decode()
+    IPAddress=IPAddress.decode()
+    x=x.decode()
+    print('FROM: ',q)
+    print('subject: ',v)
+    print('recived massege:' ,mail)
+    print('Host name: ' , host_name)
+    print('IPAddress:' , IPAddress)
+    print('MAC Address ' , x)
+    input('press enter to terminate....')
+    s.close()
+    print('closed the server socket')
+    print('terminating.....')
