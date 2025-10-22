@@ -3,7 +3,11 @@ This project is a simple SMTP email client combined with a local message logger.
 
 Core features:
 -Sends emails via Gmail’s SMTP over SSL
+
 -Logs email metadata to a local server over TCP
+
 -Demonstrates socket programming basics
+
 -Simple message forwarding + host fingerprinting
+
 -Educational example of client-server communication
